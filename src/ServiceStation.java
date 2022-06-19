@@ -1,51 +1,19 @@
 public interface ServiceStation {
-    void checkEngine();
-    void changeTyre();
 
-    void checkTrailer();
-
-    class Car implements ServiceStation{
-        @Override
-        public void checkEngine() {
-            System.out.println("Check engine oil, coolant and brake fluid levels on car.");
+        default void check(Bicycle bicycle, Car car, Truck truck) {
+        if (car != null) {
+            System.out.println("Servicing of " + car.getModelName() + ":");
+            car.changeTyre();
+            car.checkEngine();
+        } else if (truck != null) {
+            System.out.println("Servicing of " + truck.getModelName() + ":");
+            truck.changeTyre();
+            truck.checkEngine();
+            truck.checkTrailer();}
+          else if (bicycle != null) {
+            System.out.println("Servicing of " + bicycle.getModelName() + ":");
+            bicycle.changeTyre();
+            }
         }
-
-        @Override
-        public void changeTyre() {
-            System.out.println("Change 4 tyres on car.");
-        }
-
-        @Override
-        public void checkTrailer() {
-            System.out.println("Make sure all lights are operative, cargo fixed and tent is tightened.");
-        }
-    }
-    class Truck implements ServiceStation{
-        @Override
-        public void checkEngine() {
-            System.out.println("Check engine oil and coolant levels on truck.");
-        }
-        @Override
-        public void changeTyre() {
-            System.out.println("Change all tyres on truck! :((");
-        }
-        public void checkTrailer(){
-            System.out.println("Check safety devices of connected trailer!");
-        }
-
-    }
-    class Bicycle implements ServiceStation{
-        @Override
-        public void checkEngine() {}
-        @Override
-        public void changeTyre() {
-            System.out.println("No need to change tyres on bicycle." );
-        }
-
-        @Override
-        public void checkTrailer() {
-
-        }
-    }
 
 }

@@ -1,14 +1,15 @@
-public class Car extends  Vehicle {
-    public Car(String modelName, int wheelsCount){
+public class Car extends  Vehicle implements ServiceStation {
+    public Car(String modelName, int wheelsCount) {
         super(modelName, wheelsCount);
-
-    }
-    public String getmodelName(){
-        return modelName;
-    }
-    public int getwheelsCount(){
-        return  wheelsCount;
     }
 
+    public void checkEngine() {
+        System.out.println("Check engine oil, coolant and brake fluid levels on car.");
+    }
+
+    public void changeTyre() {
+        System.out.println("Change 4 tyres on car.");
+    }
 }
+
 

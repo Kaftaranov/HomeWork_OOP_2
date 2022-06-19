@@ -1,3 +1,5 @@
+import java.security.Provider;
+
 public class Main {
     private static final String[] BICYCLEMODELS = new String[]{"Kama", "Orlenok", "Sport"};
     private static final String[] CARMODELS = new String[]{"Lada Kalina", "Moskvich 412", "Zaporozhets 965"};
@@ -6,9 +8,12 @@ public class Main {
     private static final Bicycle[] BICYCLE = new Bicycle[BICYCLEMODELS.length];
     private static final Car[] CAR = new Car[CARMODELS.length];
     private static final Truck[] TRUCK = new Truck[TRUCKMODELS.length];
-    private static final ServiceStation BICYCLESERVICE = new ServiceStation.Bicycle();
-    private static final ServiceStation CARSERVICE= new ServiceStation.Car();
-    private static final ServiceStation TRUCKSERVICE= new ServiceStation.Truck();
+    private static final ServiceStation SERVICE = new ServiceStation() {
+        @Override
+        public void check(Bicycle bicycle, Car car, Truck truck) {
+            ServiceStation.super.check(bicycle, car, truck);
+        }
+    };
 
     public static void vehiclesInitializing(){
         for (int i = 0; i < BICYCLEMODELS.length; i++) {
@@ -22,19 +27,16 @@ public class Main {
         vehiclesInitializing();
 
         for (Bicycle bicycle : BICYCLE) {
-            System.out.println(bicycle.getmodelName() + ", " + bicycle.getwheelsCount() + " wheels.");
-            BICYCLESERVICE.changeTyre();
+            System.out.println(bicycle.getModelName() + ", " + bicycle.getWheelsCount() + " wheels.");
+            SERVICE.check(bicycle, null, null);
         }
         for (Car car : CAR) {
-            System.out.println(car.getmodelName() + ", " + car.getwheelsCount() + " wheels.");
-            CARSERVICE.checkEngine();
-            CARSERVICE.changeTyre();
+            System.out.println(car.getModelName() + ", " + car.getWheelsCount() + " wheels.");
+            SERVICE.check(null, car, null);
         }
         for (Truck truck : TRUCK) {
-            System.out.println(truck.getmodelName() + ", " + truck.getwheelsCount() + " wheels.");
-            TRUCKSERVICE.checkEngine();
-            TRUCKSERVICE.changeTyre();
-            TRUCKSERVICE.checkTrailer();
+            System.out.println(truck.getModelName() + ", " + truck.getWheelsCount() + " wheels.");
+            SERVICE.check(null, null, truck);
         }
     }
 }

@@ -1,13 +1,11 @@
-public class Bicycle extends Vehicle{
+public class Bicycle extends Vehicle implements ServiceStation {
     public Bicycle (String modelName, int wheelsCount){
         super(modelName, wheelsCount);
-
     }
-    public String getmodelName(){
-        return modelName;
-    }
-    public int getwheelsCount(){
-        return wheelsCount;
+    public void changeTyre() {
+        System.out.println("No need to change tyres on bicycle." );
     }
 
 }
+
+
