@@ -16,16 +16,12 @@ public class Main {
                 TRUCK[i] = new Truck(TRUCKMODELS[i], TRUCKWHEELSNUMBER[i]);
             }
         }
-    private static void Service(Service serviceStation, Bicycle bicycle, Car car, Truck truck) {
-        if (bicycle != null) {serviceStation.check(bicycle);}
-        else if (car != null) {serviceStation.check(car);}
-        else if (truck != null) {serviceStation.check(truck);}
-    }
 
         public static void main(String[] args) {
             vehiclesInitializing();
-            Service serviceStation = new ServiceStation();
-            Service(serviceStation, null, null, TRUCK[0]);
+            ServiceStation.Service (BICYCLE[0],null,null);
+            ServiceStation.Service (null, CAR[1],null);
+            ServiceStation.Service (null, null, TRUCK[2]);
         }
 
 }

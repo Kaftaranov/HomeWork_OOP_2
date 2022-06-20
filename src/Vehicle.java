@@ -1,4 +1,4 @@
-public class Vehicle {
+public class Vehicle implements Service{
     private final String MODELNAME;
     private final int WHEELSCOUNT;
 
@@ -15,4 +15,18 @@ public class Vehicle {
     }
 
 
+    @Override
+    public void check(Bicycle bicycle) {
+
+    }
+
+    @Override
+    public void check(Car car) {
+
+    }
+
+    @Override
+    public void check(Truck truck) {
+
+    }
 }
