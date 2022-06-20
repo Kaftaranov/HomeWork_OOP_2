@@ -1,32 +1,24 @@
-public class Vehicle implements Service{
+public abstract class Vehicle implements Serviceable {
     private final String MODELNAME;
     private final int WHEELSCOUNT;
 
-    public Vehicle(String modelName, int wheelsCount) {
+    Vehicle(String modelName, int wheelsCount) {
         this.MODELNAME = modelName;
         this.WHEELSCOUNT = wheelsCount;
     }
-    public String getMODELNAME() {
+    String getMODELNAME() {
         return MODELNAME;
     }
 
-    public int getWHEELSCOUNT() {
+    int getWHEELSCOUNT() {
         return WHEELSCOUNT;
     }
 
 
     @Override
-    public void check(Bicycle bicycle) {
+    public void check() {
 
     }
 
-    @Override
-    public void check(Car car) {
 
-    }
-
-    @Override
-    public void check(Truck truck) {
-
-    }
 }

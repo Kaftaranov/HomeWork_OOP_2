@@ -1,21 +1,25 @@
-public class Truck extends Vehicle implements Service {
+public class Truck extends Vehicle implements Serviceable {
     public Truck(String modelName, int wheelsCount){
-         super(modelName, wheelsCount);
+        super(modelName, wheelsCount);
     }
-    public void checkEngine() {
-        System.out.println("Check engine oil and coolant levels on truck.");
-    }
-    public void changeTyre() {
-        System.out.println("Change all " + getWHEELSCOUNT() + " tyres on truck! :((");
-    }
-    public void checkTrailer(){
-        System.out.println("Check safety devices of connected trailer!");
-    }
+private void changeTyre(){
+    System.out.println("Change all " + getWHEELSCOUNT() + " tyres on truck " + getMODELNAME());
+}
+private void checkEngine(){
+    System.out.println("Check engine oil and coolant levels on truck " + getMODELNAME()) ;
+}
+private void checkTrailer(){
+    System.out.println("Check safety devices of trailer connected to " +getMODELNAME() );
+}
     @Override
-    public void check(Truck truck) {
-        System.out.println("Servicing of " + truck.getMODELNAME() + ":");
-        truck.changeTyre();
-        truck.checkEngine();
-        truck.checkTrailer();
+    public void check() {
+    checkEngine();
+    checkTrailer();
+    changeTyre();
+    }
+
+    @Override
+    public String getMODELNAME() {
+        return super.getMODELNAME();
     }
 }

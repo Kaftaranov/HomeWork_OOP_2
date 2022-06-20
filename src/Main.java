@@ -1,4 +1,3 @@
-import java.security.Provider;
 
 public class Main {
     private static final String[] BICYCLEMODELS = new String[]{"Kama", "Orlenok", "Sport"};
@@ -9,7 +8,7 @@ public class Main {
     private static final Car[] CAR = new Car[CARMODELS.length];
     private static final Truck[] TRUCK = new Truck[TRUCKMODELS.length];
 
-    public static void vehiclesInitializing() {
+    private static void vehiclesInitializing() {
             for (int i = 0; i < BICYCLEMODELS.length; i++) {
                 BICYCLE[i] = new Bicycle(BICYCLEMODELS[i], 2);
                 CAR[i] = new Car(CARMODELS[i], 4);
@@ -19,9 +18,10 @@ public class Main {
 
         public static void main(String[] args) {
             vehiclesInitializing();
-            ServiceStation.Service (BICYCLE[0],null,null);
-            ServiceStation.Service (null, CAR[1],null);
-            ServiceStation.Service (null, null, TRUCK[2]);
+            ServiceStation service = new ServiceStation();
+            service.check(BICYCLE[0]);
+            service.check(CAR[1]);
+            service.check(TRUCK[2]);
         }
 
 }

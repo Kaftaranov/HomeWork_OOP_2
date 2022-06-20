@@ -1,21 +1,21 @@
-public class Car extends  Vehicle implements Service{
+public class Car extends  Vehicle implements Serviceable {
     public Car(String modelName, int wheelsCount) {
-         super(modelName, wheelsCount);
+        super(modelName, wheelsCount);
     }
 
-    public void checkEngine() {
-        System.out.println("Check engine oil, coolant and brake fluid levels on car.");
+    private void changeTyre(){
+        System.out.println("Change " + getWHEELSCOUNT() + " tyres on car " + getMODELNAME());
     }
-
-    public void changeTyre() {
-        System.out.println("Change 4 tyres on car.");
+    private  void  checkengine(){
+        System.out.println("Check engine oil, coolant and brake fluid levels on car " + getMODELNAME());
     }
     @Override
-    public void check(Car car){
-        System.out.println("Servicing of " + car.getMODELNAME() + ":");
-        car.changeTyre();
-        car.checkEngine();
+    public void check() {
+       checkengine();
+       changeTyre();
     }
+
+
 }
 
 

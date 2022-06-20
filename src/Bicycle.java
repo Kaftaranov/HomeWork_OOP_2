@@ -1,16 +1,14 @@
-public class Bicycle extends Vehicle implements Service{
+public class Bicycle extends Vehicle implements Serviceable {
     public Bicycle (String modelName, int wheelsCount){
-         super(modelName, wheelsCount);
+        super(modelName, wheelsCount);
     }
-    public void changeTyre() {
-        System.out.println("No need to change tyres on bicycle." );
-    }
+private void changeTyre(){
+    System.out.println("No need to change tyres on bicycle " + getMODELNAME() );
+}
     @Override
-    public void check(Bicycle bicycle) {
-        System.out.println("Servicing of " + bicycle.getMODELNAME() + ":");
-        bicycle.changeTyre();
+    public void check() {
+       changeTyre();
     }
-
 }
 
 
