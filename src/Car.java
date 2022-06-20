@@ -1,6 +1,6 @@
-public class Car extends  Vehicle implements ServiceStation {
+public class Car extends  Vehicle {
     public Car(String modelName, int wheelsCount) {
-        super(modelName, wheelsCount);
+         super(modelName, wheelsCount);
     }
 
     public void checkEngine() {

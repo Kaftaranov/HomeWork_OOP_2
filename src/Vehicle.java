@@ -1,17 +1,18 @@
 public class Vehicle {
-    private  String modelName;
-    private  int wheelsCount;
+    private final String MODELNAME;
+    private final int WHEELSCOUNT;
 
     public Vehicle(String modelName, int wheelsCount) {
-        this.modelName = modelName;
-        this.wheelsCount = wheelsCount;
+        this.MODELNAME = modelName;
+        this.WHEELSCOUNT = wheelsCount;
+    }
+    public String getMODELNAME() {
+        return MODELNAME;
     }
 
-    public String getModelName() {
-        return modelName;
+    public int getWHEELSCOUNT() {
+        return WHEELSCOUNT;
     }
 
-    public int getWheelsCount() {
-        return wheelsCount;
-    }
+
 }
